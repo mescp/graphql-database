@@ -1,0 +1,21 @@
+{
+  "name": "hiames-webserver-database",
+  "version": "1.0.0",
+  "description": "HiaMES-Server后端,业务逻辑定义",
+  "main": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "play": "prisma playground -p 4000 -s",
+    "deploy": "prisma deploy",
+    "publish": "prisma deploy",
+    "init":"prisma reset -f && prisma seed "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.coding.net:guog/helium.git"
+  },
+  "author": "liuth",
+  "license": "ISC"
+}

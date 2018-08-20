@@ -1,0 +1,50 @@
+
+type Module {
+  code: String! @unique
+  name: String! 
+  description: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  isEnable: Boolean! @default(value: "false")
+}
+
+type Menu{
+  code: String! @unique
+  name: String!
+  menus:[Menu!]!
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  isEnable: Boolean! @default(value: "false")
+}
+
+type Action {
+  code: String! @unique
+  name: String!
+  description: String
+}
+
+type Permission{
+  id:ID! @unique
+  menu:Menu! @unique
+  UserGroup:UserGroup! @unique
+  actions:[Action!]!
+  description: String!
+}
+
+
+"""
+临时测试用模型 1
+"""
+enum DataOperate{
+  PERSON,
+  DEPT
+}
+
+input ModuleCreateInput {
+  code: String!
+  name: String!  @constraint(format: "email")
+  description: String!
+  isEnable: Boolean
+}
+

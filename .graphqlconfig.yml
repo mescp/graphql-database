@@ -1,0 +1,4 @@
+projects:
+  database:
+    extensions:
+      prisma: database/prisma.yml

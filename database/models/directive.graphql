@@ -1,0 +1,8 @@
+directive @upper on FIELD_DEFINITION
+directive @concat on FIELD_DEFINITION
+directive @auth(requires: Role = ADMIN) on OBJECT
+"""
+约束格式化指令,https://github.com/confuser/graphql-constraint-directive
+"""
+directive @constraint on INPUT_FIELD_DEFINITION
+

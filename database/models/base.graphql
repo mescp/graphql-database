@@ -1,0 +1,44 @@
+"""
+用户信息
+  登录、密码、鉴权
+"""
+type User {
+  "用户ID"
+  id: ID! @unique
+  "用户名称，用户登录字段"
+  name: String! @unique @upper
+  "用户邮箱，密码找回用"
+  email: String! @unique
+  password: String!
+  "用户角色组"
+  roles: [Role]!
+  "用户组"
+  group:UserGroup
+  "用户对应人员"
+  person:Person!
+  description: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+"""
+人员信息
+  一个人员对应一个用户
+"""
+type Person{
+  id: ID! @unique
+  name: String!
+  user:User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+"""
+用户组
+  用户分组，菜单和功能操作权限对应用户组进行分配
+"""
+type UserGroup {
+  code: String! @unique
+  name: String!
+  users: [User!]!
+  "权限列表"
+  permissions:[Permission!]!
+}
