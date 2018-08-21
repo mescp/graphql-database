@@ -1,13 +1,13 @@
-# HiaMES-Server Schema
+# Schema-Server
 
-HiaMES-Server 业务设计
+Schema-Server  业务设计
 
 ## 业务设计
 
 > 业务设计，围绕Graphql标准构建。
 Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现数据和业务逻辑关系设计。设计结果通过Prisma Server进行数据存取，借助playground客户端实现API的在线调试。
 
-### 相关工具  *学习参考,无须下载*
+### 相关工具
 
 设计语言：[Graphql Schema](http://graphql.cn/learn/)
 
@@ -30,7 +30,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
 ### Step 3: 获取业务设计基础代码
 
-`git clone -b schema https://git.coding.net/guog/helium.git`
+`git clone https://github.com/mescp/graphql-database.git`
 
     .
     ├── database
@@ -67,7 +67,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
         type New{
             id:ID String!
-            name: String!
+            title: String!
         }
 
 2. 添加新模型文件引用到 prisma.yml 文件
@@ -108,7 +108,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
     Query{
         news{
             id
-            name
+            title
         }
     }
 
