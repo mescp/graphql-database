@@ -9,7 +9,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
 ### 相关工具
 
-设计语言：[Graphql Schema](http://graphql.cn/learn/)
+设计语言：[Graphql Schema](./docs/graphql.md)
 
 数据服务：[Prisma Server](https://www.prisma.io/)
 
