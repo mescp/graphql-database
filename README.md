@@ -63,11 +63,12 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
 >模型文件在 `database/models` 目录,原有文件是基础模型文件,是MES系统的核心模型设计文件,业务设计过程可参考调用,不可修改.
 
-1. 新模块业务设计在`database/models` 目录添加新模型文件,文件名称以模块名命令如:`new.graphql`
+1. 新模块业务设计在`database/models` 目录添加新模型文件,文件名称以模块名命令如:`test.graphql`
 
-        type New{
-            id:ID String!
+        type Post {
+            id: ID! @unique
             title: String!
+            name: String!
         }
 
 2. 添加新模型文件引用到 prisma.yml 文件
@@ -77,7 +78,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
         - ./models/enum.graphql
         - ./models/base.graphql
         - ./models/system.graphql
-        - ./models/new.graphql
+        - ./models/test.graphql
 
 ### Step 6: 发布设计
 
@@ -105,8 +106,22 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
 在浏览器中打开 `http://localhost:4000/playground` 并输入:
 
+> 添加数据
+
+    mutation{
+    createPost(data:{
+        title:"title"
+        name:"name"
+    }){
+        id
+        title
+    }
+    }
+
+> 查询数据
+
     Query{
-        news{
+        posts{
             id
             title
         }
