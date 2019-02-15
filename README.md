@@ -57,7 +57,7 @@ Graphql是一种用于 API 的查询语言，通过Graphql Schema编写可实现
 
 启动docker容器
 
-`docker-compose -up -d`
+`docker-compose up -d`
 
 ### Step 5: 业务设计
 
