@@ -4,10 +4,8 @@ datamodel:
   - ./models/enum.graphql
   - ./models/base.graphql
   - ./models/system.graphql
+  - ./models/product.graphql
 
 secret: mysecret123
-hooks:
-  post-deploy:
-    - graphql get-schema --project database
 seed:
   import: ./seed/datainit.graphql
