@@ -4,7 +4,6 @@ datamodel:
   - ./models/enum.graphql
   - ./models/base.graphql
   - ./models/system.graphql
-  - ./models/product.graphql
 
 secret: mysecret123
 seed:
