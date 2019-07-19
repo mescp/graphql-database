@@ -6,5 +6,3 @@ datamodel:
   - ./models/system.graphql
 
 secret: mysecret123
-seed:
-  import: ./seed/datainit.graphql
