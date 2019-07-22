@@ -1,44 +1,122 @@
+
 """
 用户信息
   登录、密码、鉴权
 """
 type User {
   "用户ID"
-  id: ID! @unique
+  id: ID! @id
   "用户名称，用户登录字段"
-  name: String! @unique @upper
+  name: String! @unique
   "用户邮箱，密码找回用"
   email: String! @unique
-  password: String!
+  password: String! @clear(role:ADMIN)
   "用户角色组"
-  roles: [Role]!
+  role: Role! @default(value:USER)
   "用户组"
   group:UserGroup
+  "RFID 可以为空不能重复"
+  RFID:String @unique
   "用户对应人员"
-  person:Person!
-  description: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  person:Person! @relation(name: "UserByPerson" link: TABLE)
+  "其他描述信息"
+  description: String
+  "创建时间"
+  createdAt: DateTime! @createdAt
+  "更新时间"
+  updatedAt: DateTime! @updatedAt
 }
-"""
-人员信息
-  一个人员对应一个用户
-"""
-type Person{
-  id: ID! @unique
-  name: String!
-  user:User
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
+
 """
 用户组
   用户分组，菜单和功能操作权限对应用户组进行分配
 """
 type UserGroup {
+  "ID"
+  id: ID! @id
+  "用户组编码，不能重复"
   code: String! @unique
+  "用户组名称"
   name: String!
+  "用户列表"
   users: [User!]!
-  "权限列表"
-  permissions:[Permission!]!
+  "其他描述信息"
+  description: String
+  "创建时间"
+  createdAt: DateTime! @createdAt
+  "更新时间"
+  updatedAt: DateTime! @updatedAt
+}
+
+"""
+人员信息
+  一个人员对应一个用户
+"""
+type Person{
+  id: ID! @id
+  "员工编码，不能重复"
+  code: String! @unique
+  "人员名称，中文名称等"
+  name: String
+  "个人头像"
+  avatar:String
+  "对应的登录用户，可以为空"
+  user:User @relation(name: "UserByPerson" onDelete: CASCADE)
+  "生日"
+  birthday:DateTime!
+  "性别"
+  sex:SexType! @default(value:MALE)
+  "组织"
+  organize: Organize! @relation(name: "OrganizeByPerson")
+  "其他描述信息"
+  description: String
+  "创建时间"
+  createdAt: DateTime! @createdAt
+  "更新时间"
+  updatedAt: DateTime! @updatedAt
+}
+
+"""
+组织机构
+  对应集团，公司，部门
+"""
+type Organize {
+  "组织机构ID"
+  id: ID! @id
+  "编码，不能为空"
+  code: String! @unique 
+  "名称不可重复"
+  name: String!
+  "人员信息"
+  persons: [Person!]! @relation(name: "OrganizeByPerson" onDelete: CASCADE )
+  "组织类型"
+  type: OrganizeType!
+  "说明"
+  description: String
+  "父组织:一"
+  parent: Organize @relation(name: "OrganizeOneToManyRelation")
+  "子结构:多"
+  organizes: [Organize!]! @relation(name: "OrganizeOneToManyRelation") 
+}
+
+"""
+数据字典
+"""
+type DataDictionary {
+  "字典id"
+  id: ID! @id
+  "分组编码"
+  groupCode: String!
+  "标签"
+  label: String!
+  "值"
+  value: String!
+  "说明"
+  description: String
+  "排序号"
+  orderNo: Int @default(value: 0)
+  "创建时间"
+  createdAt: DateTime! @createdAt
+  "更新时间"
+  updatedAt: DateTime! @updatedAt
 }

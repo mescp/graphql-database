@@ -1,21 +1,23 @@
 {
-  "name": "hiames-webserver-database",
+  "name": "webserver-database",
   "version": "1.0.0",
-  "description": "HiaMES-Server后端,业务逻辑定义",
+  "description": "业务逻辑定义",
   "main": "",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "play": "prisma playground -p 4000 -s",
+    "play": "prisma playground -s",
     "deploy": "prisma deploy",
-    "publish": "prisma deploy",
-    "init":"prisma reset -f && prisma seed "
+    "init": "prisma reset -f"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.coding.net:guog/helium.git"
+    "url": "https://github.com/mescp/graphql-database.git"
   },
   "author": "liuth",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prisma": "^1.27.4"
+  }
 }

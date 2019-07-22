@@ -1,6 +1,109 @@
+"""
+角色定义
+"""
 enum Role {
+  "超级管理员"
   ADMIN
+  "系统管理员"
   SYSTEM
+  "普通用户"
   USER
 }
 
+"""
+菜单类型
+"""
+enum MenuType{
+  "内部"
+  INTERNAL
+  "内部链接"
+  INTERNALLINK
+  "外部"
+  EXTERNAL
+  "外部弹出"
+  EXTERNALPOPUP
+}
+
+"""
+性别
+"""
+enum SexType{
+  "男"
+  MALE
+  "女"
+  FEMALE
+  "其他"
+  OTHER
+}
+
+"""
+组织类型
+"""
+enum OrganizeType{
+  "集团"
+  GROUP
+  "公司"
+  COMPANY
+  "部门"
+  DEPARTMENT
+}
+
+"""
+签名规则分类
+"""
+enum SignatureCategory{
+  "用户组"
+  USERGROUP
+  "当前登录用户"
+  LOGINUSER
+}
+
+"""
+签名规则
+"""
+enum SignatureAction{
+  "允许"
+  ALLOW
+  "禁止"
+  DENY
+}
+
+
+
+"""
+外部设备类型
+"""
+enum DeviceType{
+  "打印机"
+  PRINTER
+  "电子秤"
+  WEIGH
+  "手环"
+  BAND
+}
+
+"""
+外部设备状态
+"""
+enum DeviceStatus{
+  "注册"
+  REGISTER
+  "注销"
+  UNREGISTER
+  "在线"
+  ONLINE
+  "离线"
+  OFFLINE
+}
+
+"""
+物料类型
+"""
+enum MaterielType{
+  "成品"
+  FINISHED
+  "半成品"
+  SEMIFINISHED
+  "原材料"
+  RAW
+}

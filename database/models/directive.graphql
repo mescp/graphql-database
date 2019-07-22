@@ -1,8 +1,39 @@
-directive @upper on FIELD_DEFINITION
-directive @concat on FIELD_DEFINITION
-directive @auth(requires: Role = ADMIN) on OBJECT
 """
-约束格式化指令,https://github.com/confuser/graphql-constraint-directive
+ * Filename: /home/liuth/vscode-projects/HiaMES-WebServer/database/models/directive.graphql
+ * Path: /home/liuth/vscode-projects/HiaMES-WebServer
+ * Created Date: Monday, August 27th 2018, 10:47:11 am
+ * Author: liuth
+ * 自定义指令
+ * 分类：
+        １  Schema 指令
+        ２  Resolvers 指令
+
+ * Copyright (c) 2018 Your Company
 """
+
+# 根据设置条件清理数据
+directive @clear(role:Role) on FIELD_DEFINITION
+# 约束格式化指令,https://github.com/confuser/graphql-constraint-directive
 directive @constraint on INPUT_FIELD_DEFINITION
+# 转换大写
+directive @upper on FIELD_DEFINITION
+# 合并文本
+directive @concat(value:String) on FIELD_DEFINITION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

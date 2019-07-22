@@ -1,8 +1,7 @@
-endpoint: http://localhost:4466/
+endpoint: http://localhost:4488/test/schema
 datamodel: 
   - ./models/directive.graphql
   - ./models/enum.graphql
   - ./models/base.graphql
-  - ./models/system.graphql
 
 secret: mysecret123
